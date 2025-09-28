@@ -32,7 +32,10 @@ class BibleTextsSetup:
             # Step 2: Convert HTML files to root directory
             self._convert_html_files()
             
-            # Step 3: Create GitHub Pages files
+            # Step 3: Build search index
+            self._build_search_index()
+            
+            # Step 4: Create GitHub Pages files
             self._create_github_pages_files()
             
             # Step 4: Create index.html for root
@@ -81,6 +84,24 @@ class BibleTextsSetup:
             raise Exception(f"HTML conversion failed: {result.stderr}")
         
         logger.info("✅ HTML conversion completed")
+    
+    def _build_search_index(self):
+        """Build search index from converted HTML files"""
+        logger.info("🔍 Building search index...")
+        
+        # Run the search index builder
+        cmd = [
+            sys.executable, "build_search_index.py",
+            ".",
+            "--js",
+            "--output", "search-index.json"
+        ]
+        
+        result = subprocess.run(cmd, capture_output=True, text=True)
+        if result.returncode != 0:
+            logger.warning(f"Search index build failed: {result.stderr}")
+        else:
+            logger.info("✅ Search index built successfully")
     
     def _create_github_pages_files(self):
         """Create GitHub Pages specific files"""
@@ -149,6 +170,8 @@ Sitemap: https://bibletexts.com/sitemap.xml
     <meta name="description" content="Comprehensive Bible study resources, commentary, and early Christian literature">
     <link rel="stylesheet" href="css/modern-styles.css">
     <script src="js/modern-features.js" defer></script>
+    <script src="js/search.js" defer></script>
+    <script src="js/search-index.js" defer></script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>

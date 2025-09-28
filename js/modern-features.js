@@ -24,6 +24,7 @@
         setupFocusManagement();
         setupPrintOptimization();
         setupPerformanceOptimizations();
+        setupModernSearch();
     }
 
     /**
@@ -396,5 +397,35 @@
         element.classList.remove('loading');
         element.removeAttribute('aria-busy');
     };
+
+    /**
+     * Modern Search Integration
+     */
+    function setupModernSearch() {
+        // Load search functionality if available
+        if (typeof window.BibleTextsSearch !== 'undefined') {
+            // Search is already loaded
+            return;
+        }
+        
+        // Add search button to navigation if search.js is not loaded
+        const navContainer = document.querySelector('.nav-container');
+        if (navContainer && !document.querySelector('.search-button')) {
+            const searchButton = document.createElement('button');
+            searchButton.className = 'nav-link search-button';
+            searchButton.innerHTML = '🔍 Search';
+            searchButton.setAttribute('aria-label', 'Open search');
+            searchButton.addEventListener('click', function() {
+                // Fallback search - open browser search
+                if (window.find) {
+                    const query = prompt('Search BibleTexts.com:');
+                    if (query) {
+                        window.find(query);
+                    }
+                }
+            });
+            navContainer.appendChild(searchButton);
+        }
+    }
 
 })();

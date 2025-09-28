@@ -137,9 +137,17 @@ class HTMLConverter:
         js_script = soup.new_tag('script')
         js_script['src'] = 'js/modern-features.js'
         js_script['defer'] = True
+        search_script = soup.new_tag('script')
+        search_script['src'] = 'js/search.js'
+        search_script['defer'] = True
+        search_index_script = soup.new_tag('script')
+        search_index_script['src'] = 'js/search-index.js'
+        search_index_script['defer'] = True
         
         head.append(css_link)
         head.append(js_script)
+        head.append(search_script)
+        head.append(search_index_script)
         
         # Add skip navigation link
         skip_link = soup.new_tag('a', href='#main-content', **{'class': 'skip-link'})
