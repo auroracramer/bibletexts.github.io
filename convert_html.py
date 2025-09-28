@@ -143,11 +143,15 @@ class HTMLConverter:
         search_index_script = soup.new_tag('script')
         search_index_script['src'] = 'js/search-index.js'
         search_index_script['defer'] = True
+        reading_script = soup.new_tag('script')
+        reading_script['src'] = 'js/reading-enhancements.js'
+        reading_script['defer'] = True
         
         head.append(css_link)
         head.append(js_script)
         head.append(search_script)
         head.append(search_index_script)
+        head.append(reading_script)
         
         # Add skip navigation link
         skip_link = soup.new_tag('a', href='#main-content', **{'class': 'skip-link'})

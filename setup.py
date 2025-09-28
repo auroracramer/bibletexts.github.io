@@ -172,6 +172,7 @@ Sitemap: https://bibletexts.com/sitemap.xml
     <script src="js/modern-features.js" defer></script>
     <script src="js/search.js" defer></script>
     <script src="js/search-index.js" defer></script>
+    <script src="js/reading-enhancements.js" defer></script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
