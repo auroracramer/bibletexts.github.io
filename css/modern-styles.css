@@ -1,0 +1,549 @@
+/* Modern CSS for BibleTexts.com - Responsive and Accessible Design */
+
+/* CSS Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #1e293b;
+    background-color: #f8fafc;
+    min-height: 100vh;
+}
+
+/* Color Scheme - Modern Blue Palette */
+:root {
+    --primary-blue: #1e3a8a;
+    --secondary-blue: #3b82f6;
+    --accent-blue: #dbeafe;
+    --text-blue: #1e40af;
+    --light-bg: #f8fafc;
+    --white: #ffffff;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-600: #475569;
+    --gray-800: #1e293b;
+    --success-green: #10b981;
+    --warning-orange: #f59e0b;
+    --error-red: #ef4444;
+}
+
+/* Skip Link for Accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--primary-blue);
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 1000;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+/* Header and Navigation */
+.site-header {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.site-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.site-subtitle {
+    font-size: 1.2rem;
+    text-align: center;
+    opacity: 0.9;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Navigation */
+.main-nav {
+    background: var(--white);
+    border-bottom: 3px solid var(--primary-blue);
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.nav-link {
+    color: var(--primary-blue);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    background: var(--accent-blue);
+    border-color: var(--secondary-blue);
+    transform: translateY(-2px);
+}
+
+/* Main Content Layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.modern-layout {
+    display: grid;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.content-section {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid var(--secondary-blue);
+}
+
+/* Two Column Layout */
+.two-column-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.column {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Grid Layout */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.grid-item {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grid-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 2.5rem;
+    border-bottom: 3px solid var(--secondary-blue);
+    padding-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--text-blue);
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--gray-800);
+}
+
+.responsive-text {
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* Links */
+a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover,
+a:focus {
+    color: var(--secondary-blue);
+    text-decoration: underline;
+}
+
+.external-link::after {
+    content: " ↗";
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+/* Lists */
+ul, ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+    color: var(--gray-800);
+}
+
+/* Tables - Modern Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+th {
+    background: var(--primary-blue);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+tr:hover {
+    background: var(--accent-blue);
+}
+
+/* Special Content Sections */
+.bible-values-section {
+    background: linear-gradient(135deg, var(--accent-blue), var(--white));
+    border: 2px solid var(--secondary-blue);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.values-positive {
+    background: var(--success-green);
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.values-negative {
+    background: var(--error-red);
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Search and Navigation */
+.search-section {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.search-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.search-link {
+    background: var(--secondary-blue);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.search-link:hover {
+    background: var(--primary-blue);
+    transform: translateY(-2px);
+}
+
+/* Footer */
+.site-footer {
+    background: var(--gray-800);
+    color: white;
+    padding: 2rem 0;
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.footer-section h3 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.footer-section a {
+    color: var(--accent-blue);
+}
+
+.footer-section a:hover {
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .site-title {
+        font-size: 2rem;
+    }
+    
+    .site-subtitle {
+        font-size: 1rem;
+    }
+    
+    .nav-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .two-column-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .grid-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .search-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .content-section {
+        padding: 1rem;
+    }
+    
+    .column {
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.5rem;
+    }
+    
+    .site-title {
+        font-size: 1.5rem;
+    }
+    
+    .content-section,
+    .column,
+    .grid-item {
+        padding: 1rem;
+    }
+    
+    .nav-link {
+        padding: 0.75rem 1rem;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .skip-link,
+    .main-nav,
+    .site-footer {
+        display: none;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .content-section,
+    .column,
+    .grid-item {
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+    
+    a {
+        color: black;
+        text-decoration: underline;
+    }
+    
+    a[href^="http"]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #666;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-blue: #000080;
+        --secondary-blue: #0000ff;
+        --text-blue: #000080;
+        --gray-800: #000000;
+    }
+    
+    .content-section,
+    .column,
+    .grid-item {
+        border: 2px solid var(--primary-blue);
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Focus Styles for Accessibility */
+*:focus {
+    outline: 3px solid var(--secondary-blue);
+    outline-offset: 2px;
+}
+
+/* Button Styles */
+button, .button {
+    background: var(--secondary-blue);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover,
+.button:hover {
+    background: var(--primary-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:focus,
+.button:focus {
+    outline: 3px solid var(--accent-blue);
+    outline-offset: 2px;
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 1.5rem; }
+.p-4 { padding: 2rem; }
